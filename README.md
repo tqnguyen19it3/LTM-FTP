@@ -16,7 +16,8 @@ FTP Server & Client implement using Python
 
 ## Team
 
-- [Tran Quoc Nguyen](https://github.com/dglha)
-- [Pham Duc Trung](https://github.com/wymmndp)
-- [Pham Tran Triem](https://github.com/wymmndp)
-- [Nguyen Minh Hieu](https://github.com/wymmndp)
+- [Tran Quoc Nguyen](https://github.com/tqnguyen19it3)
+- [Pham Duc Trung](https://github.com/trungbmt)
+- [Pham Tran Triem](https://github.com/phamtrantriem)
+- [Nguyen Minh Hieu](https://github.com/nmhieu)
+
