@@ -1,0 +1,23 @@
+# About
+This is FTP Serer - PyQT5 GUI Framework
+
+## Dependencies
+- Python 3.8.x or later
+- PyQT5
+- SQLite3
+
+## Usage
+`> python main.py`
+
+## Platform
+Windows 10 21H2
+
+## Screenshot
+![Main GUI](screenshots/1.png)
+![Create User](screenshots/2.png)
+![Edit User](screenshots/3.png)
+
+## References
+- [FTP Commands list](https://en.wikipedia.org/wiki/List_of_FTP_commands).
+- [List of FTP server return codes](https://en.wikipedia.org/wiki/List_of_FTP_server_return_codes).
+
