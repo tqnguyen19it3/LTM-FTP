@@ -55,5 +55,5 @@ class GuiRunner():
 
 
 if __name__ == '__main__':
-    server_gui = GuiRunner('192.168.1.4', 21)
+    server_gui = GuiRunner('103.82.135.179', 21)
     server_gui.run()
