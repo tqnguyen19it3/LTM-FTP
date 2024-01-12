@@ -1,0 +1,13 @@
+false false vẫn tạo thư mục, download đc nhưng k upload, rename hay xóa đc
+false true vẫn tạo thư mục, download với xóa đc nhưng k upload hay rename đc
+true false chỉ xóa ko đc
+true true làm cái gì cũng đc
+
+client vẫn đang chạy mà sv thay đổi quyền write và delete
+thì chỉ upload được còn các chức năng khác thì k được
+
+Xóa folder khi còn file hoặc folder con trong đó không được,
+phải xóa hết con ms xóa folder cha đc (Lỗi: 550 RMD failed - [WinError 145] The directory is not empty: 'home_dir\\')
+
+Đề tài là sử dụng giao thức FTP để trao đổi dữ liệu trong mạng thông qua giao thức TCP/IP, máy chủ FTP đa luồng có thể kết nối nhiều máy khách cùng một lúc,
+và các máy client trong mạng có thể truy cập đến máy chủ FTP để gửi hoặc lấy dữ liệu

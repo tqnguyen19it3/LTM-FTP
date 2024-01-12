@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QTreeWidget, QTreeWidgetItemIterator
 from PyQt5 import sip
 
 
-class HumanSize:
+class HumanSize: # chứa các Size để định dạng kích thước dữ liệu
     METRIC_LABELS: List[str] = ["B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
     BINARY_LABELS: List[str] = ["B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"]
     PRECISION_OFFSETS: List[float] = [0.5, 0.05, 0.005, 0.0005]  # PREDEFINED FOR SPEED.
@@ -52,7 +52,7 @@ class HumanSize:
         return HumanSize.PRECISION_FORMATS[precision].format("-" if is_negative else "", num, unit)
 
 
-def parse_file_info(info: str):
+def parse_file_info(info: str): # Chuyển đổi thông tin về file từ một chuỗi thành một tuple chứa các thành phần như 
     item = [i for i in info.split(" ") if i != ""]
 
     modes, size, date, name = (item[0], item[1], ' '.join(item[2:4]), item[5:])
@@ -63,7 +63,7 @@ def parse_file_info(info: str):
     return modes, size, date, name
 
 
-def get_file_properties(file_path):
+def get_file_properties(file_path): # Trả về thông tin về một file, bao gồm quyền truy cập, kích thước, và thời gian sửa đổi.
     _stat = os.stat(file_path)
     message = []
 
@@ -103,11 +103,11 @@ def get_file_properties(file_path):
     return " ".join(message)
 
 
-def path_parser(path: str):
+def path_parser(path: str): # Sử dụng để chuẩn hóa đường dẫn khi làm việc với các thư mục và tệp tin.
     return path if path.endswith(os.path.sep) else path + os.path.sep
 
 
-def clearQTreeWidget(tree: QTreeWidget):
+def clearQTreeWidget(tree: QTreeWidget): # Sử dụng QTreeWidgetItemIterator để duyệt qua tất cả các mục trong cây và xóa chúng một cách hiệu quả.
     # iterator = QtGui.QTreeWidgetItemIterator(tree, QtGui.QTreeWidgetItemIterator.All)
     # while iterator.value():
     #     iterator.value().takeChildren()

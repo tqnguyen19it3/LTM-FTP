@@ -4,19 +4,19 @@ import socket
 from threading import Thread
 
 
-class MessageHandler(Thread):
+class MessageHandler(Thread): # Là một thread đơn giản thực hiện công việc lắng nghe và đưa ra các tin nhắn từ socket command.
     def __init__(self, socket: socket.socket) -> None:
         Thread.__init__(self)
         self.socket = socket
 
     def run(self):
         while True:
-            msg = self.socket.recv(SIZE).strip()
+            msg = self.socket.recv(SIZE).strip() #  thread lắng nghe liên tục các tin nhắn từ socket
             print(msg.decode("utf-8"))
             print(">>> ", end="")
 
 
-class CommandLineWorker(Thread):
+class CommandLineWorker(Thread): # Là một thread thực hiện công việc xử lý lệnh từ người dùng thông qua giao diện dòng lệnh.
     def __init__(self, socket: socket.socket) -> None:
         Thread.__init__(self)
         self.command_socket = socket
@@ -24,8 +24,9 @@ class CommandLineWorker(Thread):
         self.is_authorized = False
 
     def run(self):
-        # msg_handler = MessageHandler(self.command_socket)
-        # msg_handler.start()
+        """
+            Thread lắng nghe liên tục các lệnh từ self.command_socket, in ra màn hình console, và đọc lệnh từ người dùng thông qua hàm input.
+        """
         while True:
             try:
                 msg = self.command_socket.recv(SIZE).strip().rstrip()
@@ -96,8 +97,10 @@ class CommandLineWorker(Thread):
         self.command_socket.send(command.encode("utf-8"))
         self.is_authorized = True
 
-    """
-        FUNCS
+    """ 
+        FUNCS để thực hiện các thao tác trên máy chủ FTP
+        Các hàm chức năng được thiết lập để gửi lệnh tới socket command thông qua self.command_socket.
+        Các hàm như LIST, CAT, GET mở và đóng kết nối dữ liệu thông qua các socket dữ liệu (self.data_socket).
     """
 
     def LIST(self, dir_path):
